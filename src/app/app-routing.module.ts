@@ -10,7 +10,7 @@ const routes: Routes = [
     { path:'',component: HomeComponent,children:[
         {path:'descripcion', component:DescripcionComponent},
         {path:'noticias', component:NoticiasComponent},
-        {path:'monedas',  component:MonedaComponent},
+        {path:'moneda',  component:MonedaComponent},
         {path:'clima',    component:ClimaComponent},
     ] },
     { path:'**', redirectTo:''}
