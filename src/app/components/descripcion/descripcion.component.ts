@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-descripcion',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescripcionComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  countryName: string = ''
+
+  constructor(private data: DataService){}
+
+    
+    ngOnInit(): void {
+        this.data.currentCountry.subscribe(country => this.countryName = country)
+
   }
 
 }

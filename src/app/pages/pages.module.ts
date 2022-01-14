@@ -4,12 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PagesComponent } from './pages.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    PagesComponent
   ],
   imports: [
     CommonModule,
