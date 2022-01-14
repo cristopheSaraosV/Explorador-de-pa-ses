@@ -21,7 +21,7 @@ import { ClimaComponent } from './clima/clima.component';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
     ],
     exports: [
         SearchComponent,
