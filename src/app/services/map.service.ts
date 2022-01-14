@@ -19,10 +19,8 @@ export class MapService {
     return this.http.get<ResAPICountryName[]>(url).pipe(
         map( (todo) => {           
             return  todo.map( item => {
-                return {
-                    "common": item.name.common,
-                    "latLng": item.latlng
-                }
+                return  item.name.common
+               
             })
         })
     );

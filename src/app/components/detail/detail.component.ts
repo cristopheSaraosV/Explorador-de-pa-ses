@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { navItem } from '../../interfaces/navItem.interface';
+import { Component, ElementRef, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-detail',
@@ -7,19 +6,12 @@ import { navItem } from '../../interfaces/navItem.interface';
   styles: [
   ]
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent implements OnInit  {
 
   constructor() { }
-
-  listItem:navItem[] = [];
-
+  
   ngOnInit(): void {
-    this.listItem = [
-        { name:'Descripcion', route:'/descripcion' },
-        { name:'Noticias',    route:'/noticias' },
-        { name:'Moneda',      route:'/moneda' },
-        { name:'Clima',       route:'/clima' },
-    ]
+   
   }
 
  

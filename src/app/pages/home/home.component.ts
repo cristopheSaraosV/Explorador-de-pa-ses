@@ -10,15 +10,15 @@ import { CountrySelected } from '../../interfaces/countrySelected.interface';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
 
-  country:CountrySelected = {common:'default', latLng:[-33.4378, -70.6502]}
+
 
   ngOnInit(): void {
 
-
   }
+
 
 
 }
