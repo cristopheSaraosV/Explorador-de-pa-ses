@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import { MapService } from '../../services/map.service';
 
 @Component({
@@ -9,24 +10,25 @@ import { MapService } from '../../services/map.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private mapServices:MapService) { }
+  constructor(private mapServices:MapService,private dataService:DataService) { }
 
   listCountry: {name: string, code: string} []= [];
   
   
-  @Output() eventCountrySelected: EventEmitter<string> = new EventEmitter();
-  countrySelected: string = ''
+  countrySelected: string = '';
 
 
   ngOnInit(): void {
+
+
       this.mapServices.getAllCountry().subscribe( res => {  
         this.listCountry = res;
       })
+      
   }
 
   searchCountry(){
-      
-      this.eventCountrySelected.emit(this.countrySelected);
+      this.dataService.changeCountry(this.countrySelected);
 }
 
 }

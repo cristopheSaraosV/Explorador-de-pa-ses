@@ -27,6 +27,10 @@ export class MapService {
         })
     );
 }
+
+ 
+
+
   getDescriptionCountry(country:string) {
     const url: string = `${this._urlBase}/name/${country}`;
   
@@ -38,7 +42,8 @@ export class MapService {
                     region:item.region,
                     languages:item.languages.spa,
                     population:item.population,
-                    flag:item.flag
+                    flag:item.flag,
+                    latlng:item.latlng
                 }
             })  
         })

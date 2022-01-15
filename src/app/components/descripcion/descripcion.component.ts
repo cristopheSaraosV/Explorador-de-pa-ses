@@ -5,10 +5,12 @@ import {
   ElementRef,
   AfterViewInit,
   AfterContentInit,
+  SimpleChanges,
 } from '@angular/core'
 import { DataService } from '../../services/data.service'
 import { MapService } from '../../services/map.service'
 import { CountryDetail } from '../../interfaces/countryDetail.interface'
+import { OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-descripcion',
@@ -23,9 +25,11 @@ export class DescripcionComponent implements OnInit, AfterViewInit {
     languages: '',
     population: 0,
     region: '',
+    latlng:[]
   }
 
   constructor(private data: DataService, private mapService: MapService) {}
+   
   ngAfterViewInit(): void {
     this.getDataCountry()
   }
@@ -36,15 +40,20 @@ export class DescripcionComponent implements OnInit, AfterViewInit {
 
   getCountry() {
     this.data.currentCountry.subscribe(
-      (country) => (this.countryName = country),
+      (countryAndCode) => {
+          const country = countryAndCode.split('-');
+          this.countryName = country[0]
+          this.getDataCountry()
+        },
     )
-    this.getDataCountry()
   }
 
   getDataCountry() {
     this.mapService.getDescriptionCountry(this.countryName).subscribe((res) => {
-      console.log(res)
-      this.countryDetail = res[0]
+      this.countryDetail = res[0];
+    },
+    (error)=> {
+        console.log(error.code);
     })
   }
 }

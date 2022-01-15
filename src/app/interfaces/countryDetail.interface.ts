@@ -4,5 +4,6 @@ export interface CountryDetail {
     languages: string;
     population: number;
     region: string;
+    latlng:number[];
 }
 

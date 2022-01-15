@@ -10,7 +10,6 @@ import { ClimaComponent } from './clima/clima.component';
 import { FormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
         SearchComponent,
