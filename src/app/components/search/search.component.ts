@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private mapServices:MapService) { }
 
-  listCountry: string[]= [];
+  listCountry: {name: string, code: string} []= [];
   
   
   @Output() eventCountrySelected: EventEmitter<string> = new EventEmitter();
@@ -19,12 +19,13 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.mapServices.getAllCategories().subscribe( res => {
+      this.mapServices.getAllCountry().subscribe( res => {  
         this.listCountry = res;
       })
   }
 
   searchCountry(){
+      
       this.eventCountrySelected.emit(this.countrySelected);
 }
 

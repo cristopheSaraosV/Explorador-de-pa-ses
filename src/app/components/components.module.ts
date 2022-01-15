@@ -8,7 +8,6 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { MonedaComponent } from './moneda/moneda.component';
 import { ClimaComponent } from './clima/clima.component';
 import { FormsModule } from '@angular/forms';
-import { DetailComponent } from './detail/detail.component';
 
 
 
@@ -20,8 +19,6 @@ import { DetailComponent } from './detail/detail.component';
         NoticiasComponent,
         MonedaComponent,
         ClimaComponent,
-        DetailComponent,
-        DetailComponent
     ],
     imports: [
         CommonModule,
@@ -35,7 +32,6 @@ import { DetailComponent } from './detail/detail.component';
         NoticiasComponent,
         MonedaComponent,
         ClimaComponent,
-        DetailComponent
     ]
 })
 export class ComponentsModule { }

@@ -1,6 +1,7 @@
 export interface ResAPICountryName {
     name:   Name;
     latlng: number[];
+    cca2:string
 }
 
 export interface Name {

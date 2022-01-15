@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ResAPICountryName } from '../interfaces/resApiCountryName.interface';
+import { ResAPICountry } from '../interfaces/resApiCountry.interface';
+import { ResNewsAPI } from '../interfaces/resNewsApi.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,45 @@ export class MapService {
 
   constructor(private http: HttpClient) { }
     _urlBase = environment.restcountries;
+    _urlBaseNew = environment.newsapi;
 
-  getAllCategories() {
-    const url: string = `${this._urlBase}/all?fields=name,latlng`;
+  getAllCountry() {
+    const url: string = `${this._urlBase}/all?fields=name,latlng,cca2`;
   
     return this.http.get<ResAPICountryName[]>(url).pipe(
         map( (todo) => {           
             return  todo.map( item => {
-                return  item.name.common
+                return  {name: item.name.common, code: item.cca2}
                
             })
         })
     );
+}
+  getDescriptionCountry(country:string) {
+    const url: string = `${this._urlBase}/name/${country}`;
+  
+    return this.http.get<ResAPICountry[]>(url).pipe(
+        map( (res) => {         
+            return res.map( item => {
+                return {
+                    capital:item.capital[0],
+                    region:item.region,
+                    languages:item.languages.spa,
+                    population:item.population,
+                    flag:item.flag
+                }
+            })  
+        })
+    );
+}
+
+
+getNoticias(country:string){
+    const url: string = `${this._urlBaseNew}&country=${country}`;
+
+    return this.http.get<ResNewsAPI[]>(url)
+
+   
 }
 
 }

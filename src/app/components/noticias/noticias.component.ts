@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { MapService } from '../../services/map.service';
 
 @Component({
   selector: 'app-noticias',
@@ -8,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+    countryName: string = ''
+    constructor(private data: DataService, private mapService:MapService) {}
+    ngOnInit(): void {
+      this.data.currentCountry.subscribe(
+        (country) => (this.countryName = country),
+      )
 
-  ngOnInit(): void {
-  }
-
+      this.mapService.getNoticias('us').subscribe( res => {
+          console.log(res[0].articles);
+      })
+    }
 }

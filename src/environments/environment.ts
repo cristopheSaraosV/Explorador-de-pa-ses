@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  restcountries:"https://restcountries.com/v3.1/"
-
+  restcountries:"https://restcountries.com/v3.1/",
+  newsapi:"https://newsapi.org/v2/top-headlines?apiKey=b7246a738dbb4689a015af8276f21e8c"
 };
 
 /*
