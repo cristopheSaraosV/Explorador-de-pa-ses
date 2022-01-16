@@ -21,7 +21,7 @@ export class PagesComponent implements OnInit {
       this.data.currentCountry.subscribe(message => this.country = message);
 
     this.listItem = [
-        { name:'Descripcion', route:'/descripcion' },
+        { name:'Descripción', route:'/descripcion' },
         { name:'Noticias',    route:'/noticias' },
         { name:'Moneda',      route:'/moneda' },
         { name:'Clima',       route:'/clima' },
