@@ -6,3 +6,11 @@
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
   }
+
+.bg{
+    background-color: rgb(241, 241, 241);
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}

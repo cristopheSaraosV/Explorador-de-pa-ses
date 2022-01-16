@@ -1,4 +1,4 @@
-import { Currencies } from './../../interfaces/resApiCountry.interface';
+import { Currencies } from '../../interfaces/resApiCountry.interface';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { MapService } from '../../services/map.service';

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { MapComponent } from './map/map.component';
 import { RouterModule } from '@angular/router';
-import { DescripcionComponent } from './descripcion/descripcion.component';
-import { NoticiasComponent } from './noticias/noticias.component';
-import { MonedaComponent } from './moneda/moneda.component';
-import { ClimaComponent } from './clima/clima.component';
+import { DescripcionComponent } from '../pages/descripcion/descripcion.component';
+import { NoticiasComponent } from '../pages/noticias/noticias.component';
+import { MonedaComponent } from '../pages/moneda/moneda.component';
+import { ClimaComponent } from '../pages/clima/clima.component';
 import { FormsModule } from '@angular/forms';
 
 
