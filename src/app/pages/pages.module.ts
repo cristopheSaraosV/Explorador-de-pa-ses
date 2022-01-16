@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesComponent } from './pages.component';
 
 
@@ -15,7 +15,7 @@ import { PagesComponent } from './pages.component';
     CommonModule,
     ComponentsModule,
     RouterModule,
-    FormsModule
+    ReactiveFormsModule
   ],
 })
 export class PagesModule { }

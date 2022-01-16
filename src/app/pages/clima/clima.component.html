@@ -1,0 +1,60 @@
+<div class="animate__animated animate__fadeIn">
+    <div class="alert alert-primary" role="alert">
+        <h5>Country: {{countryName | titlecase}}</h5>
+    </div>
+
+</div>
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title mb-4 text-secondary">
+      <strong class="text-dark">Weather:</strong>
+      {{ countryWeather.main  | titlecase}}
+    </h5>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 mb-4 mb-md-0">
+        <h4 class="card-subtitle mb-2 text-muted">
+          {{ countryWeather.description | titlecase }}
+        </h4>
+        <img
+          [src]="
+            'http://openweathermap.org/img/wn/' +
+            countryWeather.icon +
+            '@2x.png'
+          "
+          class="img-fluid"
+          alt=""
+        />
+        <br>
+        <small>{{ (countryWeather.temperature-273.15) | number:'2.0-1'  }}  º </small>
+
+
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
+        <dl class="row">
+            <dt class="col-sm-3 col-md-4 text-dark">Feels like:</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary"> {{ countryWeather.feels_like -273.15  | number:'2.0-1' }} </dd>
+          
+            <dt class="col-sm-3 col-md-4 text-dark">Grnd level:</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary"> {{ countryWeather.grnd_level }} </dd>
+        
+            <dt class="col-sm-3 col-md-4 text-dark">Humidity</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary"> {{ countryWeather.humidity }} </dd>
+            
+            <dt class="col-sm-3 col-md-4 text-dark">Pressure</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary">{{ countryWeather.pressure }} </dd>
+
+            <dt class="col-sm-3 col-md-4 text-dark">Sea level</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary"> {{ countryWeather.sea_level }} </dd>
+
+            <dt class="col-sm-3 col-md-4 text-dark">Temp max</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary"> {{ countryWeather.temp_max-273.15  | number:'2.0-1'  }} º </dd>
+            
+            <dt class="col-sm-3 col-md-4 text-dark">Temp min</dt>
+            <dd class="col-sm-9 col-md-8 text-secondary">{{ countryWeather.temp_min-273.15  | number:'2.0-1'  }} º  </dd>
+            
+          </dl>
+
+      </div>
+    </div>
+  </div>
+</div>
