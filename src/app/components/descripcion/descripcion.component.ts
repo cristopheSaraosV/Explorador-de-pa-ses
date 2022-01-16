@@ -1,16 +1,10 @@
 import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  AfterContentInit,
-  SimpleChanges,
-} from '@angular/core'
-import { DataService } from '../../services/data.service'
-import { MapService } from '../../services/map.service'
-import { CountryDetail } from '../../interfaces/countryDetail.interface'
-import { OnChanges } from '@angular/core';
+    AfterViewInit, Component,
+    OnInit
+} from '@angular/core';
+import { CountryDetail } from '../../interfaces/countryDetail.interface';
+import { DataService } from '../../services/data.service';
+import { MapService } from '../../services/map.service';
 
 @Component({
   selector: 'app-descripcion',

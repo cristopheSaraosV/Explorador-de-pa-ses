@@ -42,19 +42,29 @@ export class MapService {
                     region:item.region,
                     languages:item.languages.spa,
                     population:item.population,
-                    flag:item.flag,
+                    flag:item.flags.png,
                     latlng:item.latlng
                 }
             })  
         })
     );
 }
+  getCurrencyCountry(country:string) {
+    const url: string = `${this._urlBase}/name/${country}`;
+  
+    return this.http.get<ResAPICountry[]>(url).pipe(
+        map( (res) => {         
+            return res.map( item => ({currency: item.currencies}) )
+        } 
+        )
+    );
+}
 
 
-getNoticias(country:string){
+getNoticias(country:string='us'){
     const url: string = `${this._urlBaseNew}&country=${country}`;
 
-    return this.http.get<ResNewsAPI[]>(url)
+    return this.http.get<ResNewsAPI>(url)
 
    
 }

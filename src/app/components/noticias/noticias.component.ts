@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { MapService } from '../../services/map.service';
+import { Article } from '../../interfaces/resNewsApi.interface';
 
 @Component({
   selector: 'app-noticias',
@@ -10,15 +11,36 @@ import { MapService } from '../../services/map.service';
 })
 export class NoticiasComponent implements OnInit {
 
-    countryName: string = ''
+    countryName: string = '';
+    countryCode: string = '';
+
+    newsList:Article[]=[];
     constructor(private data: DataService, private mapService:MapService) {}
     ngOnInit(): void {
-      this.data.currentCountry.subscribe(
-        (country) => (this.countryName = country),
-      )
-
-      this.mapService.getNoticias('us').subscribe( res => {
-          console.log(res[0].articles);
-      })
+        this.getCountry();   
     }
+
+    ngAfterViewInit(): void {
+        this.getNews()
+      }
+
+    getCountry() {
+        this.data.currentCountry.subscribe(
+          (countryAndCode) => {
+              const country = countryAndCode.split('-');
+              if(country[0].length<= 0){
+                  this.countryCode = 'us'
+              }
+              this.countryName = country[0] 
+              this.countryCode = country[1]
+              this.getNews()
+            },
+        )
+      }
+
+      getNews() {
+        this.mapService.getNoticias(this.countryCode).subscribe(res => {
+            this.newsList = res.articles;
+        })
+      }
 }
