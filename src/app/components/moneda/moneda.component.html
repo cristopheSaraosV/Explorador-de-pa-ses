@@ -1,0 +1,9 @@
+<div class="animate__animated animate__fadeIn">
+    <div class="alert alert-dark" role="alert">
+        <h5>{{countryName}}</h5>
+      </div>
+    <ul class="list-group list-group-flush" *ngIf="!isObjEmpty(countryCurrency)">
+        <li class="list-group-item"><strong>Currency: </strong> {{countryCurrency| json}}</li>
+      
+      </ul>
+</div>

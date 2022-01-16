@@ -1,0 +1,22 @@
+<div class="animate__animated animate__fadeIn">
+<div class="alert alert-dark" role="alert">
+    <h5>{{countryName}}</h5>
+  </div>
+
+
+  <dl class="row" *ngIf="countryDetail.region.length >0">
+    <dt class="col-sm-3">Capital</dt>
+    <dd class="col-sm-9"> {{countryDetail.capital}} </dd>
+  
+    <dt class="col-sm-3">Region</dt>
+    <dd class="col-sm-9"> {{countryDetail.region}} </dd>
+
+    <dt class="col-sm-3">Population</dt>
+    <dd class="col-sm-9"> {{countryDetail.population}} </dd>
+
+    <dt class="col-sm-3">flag</dt>
+    <dd class="col-sm-9"> <img [src]="countryDetail.flag" width="100px" class="ms-2" alt=""> </dd>
+  
+   
+  </dl>
+</div>
