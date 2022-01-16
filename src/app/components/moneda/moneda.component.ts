@@ -44,4 +44,12 @@ export class MonedaComponent implements OnInit {
             })
         })
       }
+
+      isObjEmpty(obj:object) {
+        for (var prop in obj) {
+          if (obj.hasOwnProperty(prop)) return false;
+        }
+      
+        return true;
+      }
 }

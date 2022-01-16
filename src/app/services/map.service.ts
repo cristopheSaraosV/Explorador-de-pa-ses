@@ -61,7 +61,7 @@ export class MapService {
 }
 
 
-getNoticias(country:string='us'){
+getNoticias(country:string='ue'){
     const url: string = `${this._urlBaseNew}&country=${country}`;
 
     return this.http.get<ResNewsAPI>(url)
