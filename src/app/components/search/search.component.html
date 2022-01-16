@@ -1,0 +1,7 @@
+<form class="d-flex">
+    <select class="form-select" aria-label="Default select example" name="countrySelected"     [(ngModel)]="countrySelected" (change)="searchCountry()">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let item of listCountry" [value]="item.name+'-'+item.code" >{{item.name}}</option>     
+      </select>
+    <button class="btn btn-outline-success" type="button" (click)="searchCountry()">Search</button>
+  </form>
